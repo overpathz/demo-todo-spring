@@ -35,10 +35,13 @@ public class SecurityConfig {
                 // Налаштування едпоінтів
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/api/v1/weather/**").permitAll()
+                        .requestMatchers("/api/v1/email/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/swagger-resources/*", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/endpoint", "/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/v1/reports/**").hasRole("VIP")
-                        .requestMatchers("/api/v1/users/**").hasRole("USER")
+                        .requestMatchers("/api/v1/bonuses/**").hasAnyRole("USER", "VIP")
+                        .requestMatchers("/api/v1/users/**").hasAnyRole("USER", "VIP")
                         .requestMatchers("/api/v1/adminka/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))

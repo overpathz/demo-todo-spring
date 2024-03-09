@@ -18,7 +18,8 @@ public class Task {
     private Long id;
     private String name;
     private String description;
-
+    private LocalDateTime dueDate;
+    private String isDeadlined = "false";
     @CreationTimestamp
     private LocalDateTime createdAt = LocalDateTime.now();
 
