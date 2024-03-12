@@ -1,4 +1,4 @@
-package com.example.demoreplay.service;
+package com.example.demoreplay.service.auth;
 
 
 import com.example.demoreplay.entity.User;
@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.sql.Connection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package com.example.demoreplay.config;
 
 
-import com.example.demoreplay.service.JwtService;
+import com.example.demoreplay.service.auth.JwtService;
 import com.example.demoreplay.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

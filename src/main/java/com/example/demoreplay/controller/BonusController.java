@@ -1,6 +1,6 @@
 package com.example.demoreplay.controller;
 
-import com.example.demoreplay.service.BonusService;
+import com.example.demoreplay.service.bonus.BonusService;
 import com.example.demoreplay.util.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;

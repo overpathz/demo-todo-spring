@@ -1,4 +1,4 @@
-package com.example.demoreplay.service;
+package com.example.demoreplay.service.bonus;
 
 import org.springframework.stereotype.Component;
 

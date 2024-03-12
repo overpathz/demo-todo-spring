@@ -4,7 +4,7 @@ package com.example.demoreplay.controller;
 import com.example.demoreplay.dto.auth.JwtAuthenticationResponse;
 import com.example.demoreplay.dto.auth.SignInRequest;
 import com.example.demoreplay.dto.auth.SignUpRequest;
-import com.example.demoreplay.service.AuthenticationService;
+import com.example.demoreplay.service.bonus.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

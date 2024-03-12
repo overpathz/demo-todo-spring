@@ -1,4 +1,4 @@
-package com.example.demoreplay.service;
+package com.example.demoreplay.service.bonus;
 
 public interface BonusService {
     String getBonus();

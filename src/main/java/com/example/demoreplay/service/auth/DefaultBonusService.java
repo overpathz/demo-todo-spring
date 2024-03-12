@@ -1,5 +1,6 @@
-package com.example.demoreplay.service;
+package com.example.demoreplay.service.auth;
 
+import com.example.demoreplay.service.bonus.BonusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

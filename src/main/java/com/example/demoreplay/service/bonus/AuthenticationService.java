@@ -1,4 +1,4 @@
-package com.example.demoreplay.service;
+package com.example.demoreplay.service.bonus;
 
 
 import com.example.demoreplay.dto.auth.JwtAuthenticationResponse;
@@ -6,6 +6,8 @@ import com.example.demoreplay.dto.auth.SignInRequest;
 import com.example.demoreplay.dto.auth.SignUpRequest;
 import com.example.demoreplay.entity.Role;
 import com.example.demoreplay.entity.User;
+import com.example.demoreplay.service.UserService;
+import com.example.demoreplay.service.auth.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -4,6 +4,7 @@ import com.example.demoreplay.entity.Task;
 import com.example.demoreplay.repository.TaskRepository;
 import com.example.demoreplay.service.EmailService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 
 public class TaskDeadlineNotifierJob {
     private final TaskRepository taskRepository;
