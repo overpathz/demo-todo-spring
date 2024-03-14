@@ -3,6 +3,7 @@ package com.example.demoreplay.service;
 import com.example.demoreplay.entity.Role;
 import com.example.demoreplay.entity.Task;
 import com.example.demoreplay.entity.User;
+import com.example.demoreplay.exception.UserNotFoundException;
 import com.example.demoreplay.repository.TaskRepository;
 import com.example.demoreplay.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,13 +29,21 @@ public class UserService {
         return user.getTasks().get(user.getTasks().size() - 1);
     }
 
+    @Transactional
+    public Task addUserEvent(Long id, Task task) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.addTask(task);
+        userRepository.save(user);
+        return user.getTasks().get(user.getTasks().size() - 1);
+    }
+
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 
     @Transactional
     public User getUserWithTasks(Long id) {
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
         int size = user.getTasks().size();
         return user;
     }

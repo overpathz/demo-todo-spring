@@ -87,6 +87,12 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.12.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.27</version> <!-- Adjust version as needed -->
+        </dependency>
+
     </dependencies>
 
     <build>

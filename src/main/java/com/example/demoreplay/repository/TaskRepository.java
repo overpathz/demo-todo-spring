@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.hibernate.jpa.HibernateHints.*;
@@ -19,4 +21,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             @QueryHint(name = HINT_READ_ONLY, value = "true"),
     })
     Stream<Task> getAllTasks();
+
+    List<Task> findAllByIsDeadlinedNotAndDueDateIsBefore(String value, LocalDateTime now);
 }

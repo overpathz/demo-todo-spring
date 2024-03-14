@@ -20,6 +20,7 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
+@ToString(exclude = {"events", "tasks"})
 public class User implements UserDetails {
     @Id
     @Column(name = "id")
@@ -42,6 +43,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Task> tasks = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private List<Event> events = new ArrayList<>();
+
     public void addTask(Task task) {
         task.setUser(this);
         tasks.add(task);
@@ -50,6 +54,11 @@ public class User implements UserDetails {
     public void removeTask(Task task) {
         task.setUser(null);
         tasks.remove(task);
+    }
+
+    public void addEvent(Event event) {
+        event.setUser(this);
+        events.add(event);
     }
 
     @Override
