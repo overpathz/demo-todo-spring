@@ -1,5 +1,7 @@
 package com.example.demoreplay.service;
 
+import com.example.demoreplay.dto.Content;
+import com.example.demoreplay.dto.UserResponse;
 import com.example.demoreplay.entity.Role;
 import com.example.demoreplay.entity.Task;
 import com.example.demoreplay.entity.User;
@@ -8,11 +10,16 @@ import com.example.demoreplay.repository.TaskRepository;
 import com.example.demoreplay.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -90,6 +97,17 @@ public class UserService {
     public User getCurrentUser() {
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
         return getByUsername(username);
+    }
+
+    public UserResponse getCustomResponse(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<User> all = userRepository.findAll(pageable);
+        return UserResponse.builder().userList(all.getContent()).contentSize(all.getSize()).build();
+    }
+
+    public User findUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException("Користувача не знайдено"));
     }
 
     @Deprecated

@@ -92,6 +92,20 @@
             <artifactId>tika-core</artifactId>
             <version>1.27</version> <!-- Adjust version as needed -->
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.224</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 

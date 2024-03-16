@@ -20,7 +20,7 @@ public class DataInitializer {
     private final UserRepository userRepository;
     private final TaskRepository taskRepository;
 
-//    @PostConstruct
+    @PostConstruct
     public void init() {
         User user = User.builder()
                 .username("overpathz111")
